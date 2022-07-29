@@ -1,28 +1,27 @@
-import React from 'react';
-import { Box, Grid, Typography } from '@mui/material';
+import React from "react";
+import { Grid } from "@mui/material";
+
+import { ThemeProvider } from "@mui/material/styles";
+import appTheme from "./appTheme";
+import HelpCard from "./features/gcloudCommand/HelpCard";
+import OrganizationIdSnippet from "./features/gcloudCommand/OrganizationIdSnippet";
 
 function App() {
   return (
-    <Grid 
-      container 
-      spacing={0}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      style={{ minHeight: '100vh' }}>
-      <Grid item>
-        <Box sx={{ maxWidth: 1024 }}>
-          <Typography variant="h3" align="center">
-            You can use this component as an entry point. Or feel free to bring your own file structure
-          </Typography>
-
-          <Typography variant="h3" align="center">
-           ✨Good luck✨
-          </Typography>
-        </Box>
+    <ThemeProvider theme={appTheme}>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 4, lg: 7 }}
+        p={{ xs: 4, md: 8, lg: 12 }}
+      >
+        <Grid item xs={12} md={8}>
+          <OrganizationIdSnippet />
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <HelpCard />
+        </Grid>
       </Grid>
-    </Grid>
-    
+    </ThemeProvider>
   );
 }
 
